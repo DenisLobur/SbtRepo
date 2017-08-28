@@ -3,13 +3,31 @@
 [0m[[0mdebug[0m] [0m[naha] 	removed:Set()[0m
 [0m[[0mdebug[0m] [0m[naha] 	added: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] 	modified: Set()[0m
-[0m[[0mdebug[0m] [0m[naha] Invalidated products: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidated products: Set(/home/denys/projects/SbtProjects/hello-world-sbt/target/scala-2.12/classes/Calculator.class, /home/denys/projects/SbtProjects/hello-world-sbt/target/scala-2.12/classes/SbtScalaMainApp$delayedInit$body.class, /home/denys/projects/SbtProjects/hello-world-sbt/target/scala-2.12/classes/SbtScalaMainApp$.class, /home/denys/projects/SbtProjects/hello-world-sbt/target/scala-2.12/classes/SbtScalaMainApp.class)[0m
 [0m[[0mdebug[0m] [0m[naha] External API changes: API Changes: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] Modified binary dependencies: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] [0m
 [0m[[0mdebug[0m] [0m[naha] Sources indirectly invalidated by:[0m
-[0m[[0mdebug[0m] [0m[naha] 	product: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	product: Set(/home/denys/projects/SbtProjects/hello-world-sbt/src/main/scala/Calculator.scala, /home/denys/projects/SbtProjects/hello-world-sbt/src/main/scala/hello_world.scala)[0m
 [0m[[0mdebug[0m] [0m[naha] 	binary dep: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] 	external source: Set()[0m
-[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/home/denys/projects/SbtProjects/hello-world-sbt/src/main/scala/Calculator.scala, /home/denys/projects/SbtProjects/hello-world-sbt/src/main/scala/hello_world.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(/home/denys/projects/SbtProjects/hello-world-sbt/src/main/scala/Calculator.scala, /home/denys/projects/SbtProjects/hello-world-sbt/src/main/scala/hello_world.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Recompiling all 2 sources: invalidated sources (2) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 2 Scala sources to /home/denys/projects/SbtProjects/hello-world-sbt/target/scala-2.12/classes...[0m
+[0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.15:component from component compiler for Scala 2.12.2[0m
+[0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.15:component from component compiler for Scala 2.12.2[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 6d93168b, interfacing (CompilerInterface) with Scala compiler version 2.12.2[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/home/denys/progs/jdk1.8.0_131/jre/lib/resources.jar:/home/denys/progs/jdk1.8.0_131/jre/lib/rt.jar:/home/denys/progs/jdk1.8.0_131/jre/lib/sunrsasign.jar:/home/denys/progs/jdk1.8.0_131/jre/lib/jsse.jar:/home/denys/progs/jdk1.8.0_131/jre/lib/jce.jar:/home/denys/progs/jdk1.8.0_131/jre/lib/charsets.jar:/home/denys/progs/jdk1.8.0_131/jre/lib/jfr.jar:/home/denys/progs/jdk1.8.0_131/jre/classes:/home/denys/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.2.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/home/denys/projects/SbtProjects/hello-world-sbt/target/scala-2.12/classes[0m
+[0m[[0mdebug[0m] [0mScala compilation took 0.564096346 s[0m
+[0m[[0mdebug[0m] [0m[naha] New invalidations:[0m
+[0m[[0mdebug[0m] [0m[naha] 	Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Previously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0mdebug[0m] [0m[naha] 	Set()[0m
+[0m[[0mdebug[0m] [0m[naha] All newly invalidated sources after taking into account (previously) recompiled sources:Set()[0m

@@ -4,7 +4,7 @@
 		module="hello-world-sbt_2.12"
 		revision="1.0"
 		status="integration"
-		publication="20170828171556"
+		publication="20170828172109"
 	>
 		<description>
 		hello-world-sbt
