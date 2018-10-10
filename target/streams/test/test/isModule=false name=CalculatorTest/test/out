@@ -1,6 +1,0 @@
-[0m[[0minfo[0m] [0m[34mTest run started[0m[0m
-[0m[[0minfo[0m] [0mTest [33mCalculatorTest[0m.[36mtestSumOK[0m started[0m
-[0m[[0minfo[0m] [0mTest [33mCalculatorTest[0m.[36mtestSum0[0m started[0m
-[0m[[0minfo[0m] [0mTest [33mCalculatorTest[0m.[36mtestMultiply0[0m started[0m
-[0m[[0minfo[0m] [0mTest [33mCalculatorTest[0m.[36mtestMultiplyOk[0m started[0m
-[0m[[0minfo[0m] [0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 4 total, 0.009s[0m[0m

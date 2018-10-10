@@ -12,7 +12,7 @@ sealed trait GenericList[A] {
   def contains[A](elem: A): Boolean = {
     this match {
       case GenericEnd() => false
-      case GenericPair(head, tail) =>
+      case GenericPair(head, tail) => ???
     }
   }
 }
