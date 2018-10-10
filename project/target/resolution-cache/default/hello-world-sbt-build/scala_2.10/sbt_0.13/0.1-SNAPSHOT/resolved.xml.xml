@@ -4,7 +4,7 @@
 		module="hello-world-sbt-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20170828172011"
+		publication="20181010133736"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>
@@ -17,6 +17,8 @@
 		<conf name="test" visibility="public" description="" extends="runtime"/>
 		<conf name="provided" visibility="public" description=""/>
 		<conf name="optional" visibility="public" description=""/>
+		<conf name="androidTest" visibility="private" description="" extends="runtime"/>
+		<conf name="android-internal" visibility="private" description=""/>
 		<conf name="compile-internal" visibility="private" description="" extends="compile,optional,provided"/>
 		<conf name="runtime-internal" visibility="private" description="" extends="runtime,optional"/>
 		<conf name="test-internal" visibility="private" description="" extends="test,optional,provided"/>

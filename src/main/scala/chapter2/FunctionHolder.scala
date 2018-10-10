@@ -9,7 +9,7 @@ object FunctionHolder extends App {
   println(max(6, 3))
 
   // Iterate with while loop
-  val arg = new Array[String](3)
+  val arg: Array[String] = new Array[String](3) // Init array of Strings with 3 empty elements
   arg(0) = "First"
   arg(1) = "Second"
   arg(2) = "Third"
@@ -26,7 +26,15 @@ object FunctionHolder extends App {
 
   // Iterate with foreach and for
   arg.foreach(ar => println(ar)) //1
+
   arg.foreach(println) //2
-  for(ar <- arg) //3
+
+  for (ar <- arg) //3
     println(ar)
+
+  for (ar <- 0 to 2) //4
+    println(arg(ar))
+
+  for (ar <- 0.to(2)) //5
+    println(arg(ar))
 }

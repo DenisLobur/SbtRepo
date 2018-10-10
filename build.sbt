@@ -1,7 +1,7 @@
 import	AssemblyKeys._	
 assemblySettings	
 
-name	:=	"hello-world-sbt"	
+name	:=	"leetcode"	
 	
 version	:=	"1.0"	
 	
