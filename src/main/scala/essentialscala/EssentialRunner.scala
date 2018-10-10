@@ -35,6 +35,17 @@ object EssentialRunner extends App {
   assert(genericExample.tail.length == 2)
   assert(GenericEnd().length == 0)
 
+  assert(genericExample.contains(3) == true)
+  assert(genericExample.contains(4) == false)
+  assert(GenericEnd().contains(0) == false)
 
-
+  assert(genericExample(0) == 1)
+  assert(genericExample(1) == 2)
+  assert(genericExample(2) == 3)
+  assert(try {
+    genericExample(3)
+    false
+  } catch {
+    case e: Exception => true
+  })
 }

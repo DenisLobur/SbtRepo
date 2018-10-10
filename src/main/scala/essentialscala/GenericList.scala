@@ -8,11 +8,17 @@ sealed trait GenericList[A] {
     }
   }
 
-  //TODO: implement
-  def contains[A](elem: A): Boolean = {
+  def contains(elem: A): Boolean = {
     this match {
       case GenericEnd() => false
-      case GenericPair(head, tail) => ???
+      case GenericPair(head, tail) => if (head == elem) true else tail.contains(elem)
+    }
+  }
+
+  def apply(index: Int): A = {
+    this match {
+      case GenericEnd() => throw new Exception("Bad things happened")
+      case GenericPair(head, tail) => if (index == 0) head else tail.apply(index - 1)
     }
   }
 }
