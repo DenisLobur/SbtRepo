@@ -1,4 +1,4 @@
-package easy
+package leetcode.easy
 
 object SortArrayByParity {
   def sortArrayByParity(a: Array[Int]): Array[Int] = {
