@@ -21,6 +21,14 @@ sealed trait IntList {
       case Pair(head, tail) => Pair(head * 2, tail.double)
     }
   }
+
+  //TODO: implement
+  def abstraction(end: Int, f: Int => Int): Int = {
+    this match {
+      case End => end
+      case Pair(head, tail) => f(head, ???)
+    }
+  }
 }
 
 final case object End extends IntList
