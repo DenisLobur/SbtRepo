@@ -18,7 +18,7 @@ final case class PolyLeaf(elem: Int) extends PolyTree {
 }
 
 final case class PolyNode(left: PolyTree, right: PolyTree) extends PolyTree {
-  override def sum: Int = left.sum + right.sum
+  def sum: Int = left.sum + right.sum
 
-  override def double: PolyTree = PolyNode(left.double, right.double)
+  def double: PolyTree = PolyNode(left.double, right.double)
 }

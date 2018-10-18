@@ -48,4 +48,26 @@ object EssentialRunner extends App {
   } catch {
     case e: Exception => true
   })
+
+  val abstractExample = Pair(1, Pair(2, Pair(3, Pair(4, End))))
+
+  println("abstract sum: " + abstractExample.abstraction(0, (head, tail) => head + tail))
+  println("abstract product: " + abstractExample.abstraction(1, (head, tail) => head * tail))
+  println("abstract length: " + abstractExample.abstraction(0, (_, tail) => 1 + tail))
+
+  val foldExample = PairFold(1, PairFold(2, PairFold(3, PairFold(4, EndFold))))
+
+  println("fold length: " + foldExample.length())
+  println("fold sum: " + foldExample.sum())
+  println("fold product: " + foldExample.product())
+  println("fold double: " + foldExample.double())
+
+  val tree: GenericTree[String] =
+    GenericNode(GenericNode(GenericLeaf("To"), GenericLeaf("iterate")),
+      GenericNode(GenericNode(GenericLeaf("is"), GenericLeaf("human,")),
+        GenericNode(GenericLeaf("to"), GenericNode(GenericLeaf("recurse"),
+          GenericLeaf("divine")))))
+
+  println(tree.fold[String]((a, b) => a + " " + b, str => str))
 }
+

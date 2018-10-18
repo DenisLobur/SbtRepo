@@ -22,11 +22,10 @@ sealed trait IntList {
     }
   }
 
-  //TODO: implement
-  def abstraction(end: Int, f: Int => Int): Int = {
+  def abstraction(end: Int, f: (Int, Int) => Int): Int = {
     this match {
       case End => end
-      case Pair(head, tail) => f(head, ???)
+      case Pair(head, tail) => f(head, tail.abstraction(end, f))
     }
   }
 }
