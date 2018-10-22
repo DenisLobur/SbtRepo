@@ -73,5 +73,29 @@ object EssentialRunner extends App {
   val pair = MyGenericPair[String, Int]("hi", 42)
   println("pair first: " + pair.first)
   println("pair second: " + pair.second)
+
+  val left = Left[Int, String](1).value
+  println("left value: " + left)
+
+  val right = Right[Int, String]("foo").value
+  println("right value: " + right)
+
+  def intOrString(input: Boolean): Sum[Int, String] =
+    if(input == true) {
+      Left[Int, String](123)
+    } else {
+      Right[Int, String]("abc")
+    }
+
+  println("intOrString: " + intOrString(true))
+
+  val sum: Sum[Int, String] = Right("foo")
+
+  val checkSum = sum match {
+    case Left(value) => value.toString
+    case Right(value) => value
+  }
+
+  println("check sum: " + checkSum)
 }
 
