@@ -69,5 +69,9 @@ object EssentialRunner extends App {
           GenericLeaf("divine")))))
 
   println(tree.fold[String]((a, b) => a + " " + b, str => str))
+
+  val pair = MyGenericPair[String, Int]("hi", 42)
+  println("pair first: " + pair.first)
+  println("pair second: " + pair.second)
 }
 
