@@ -97,5 +97,15 @@ object EssentialRunner extends App {
   }
 
   println("check sum: " + checkSum)
+
+  val checkFoldSum = Left(123)
+  val checkSumVal = checkFoldSum.fold[String](a => a.toString, int => int)
+  println("checkSumValue: " +  checkSumVal.isInstanceOf[Double] )
+
+
+  val perhaps: Maybe[Int] = Empty[Int]
+  val perhaps2: Maybe[Int] = Full(1)
+
+  println("maybe: " + perhaps + " " + perhaps2)
 }
 
