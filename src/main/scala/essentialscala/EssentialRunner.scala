@@ -1,5 +1,7 @@
 package essentialscala
 
+import essentialscala.model.{Order, User}
+
 object EssentialRunner extends App {
   val d = End
   val c = Pair(3, d)
@@ -30,6 +32,9 @@ object EssentialRunner extends App {
   assert(End.double == End)
 
   val genericExample = GenericPair(1, GenericPair(2, GenericPair(3, GenericEnd())))
+
+  val genericExampleDoubled = genericExample.map(v => v * 2)
+  println("genericPair doubled: " + genericExampleDoubled)
 
   assert(genericExample.length == 3)
   assert(genericExample.tail.length == 2)
@@ -81,31 +86,52 @@ object EssentialRunner extends App {
   println("right value: " + right)
 
   def intOrString(input: Boolean): Sum[Int, String] =
-    if(input == true) {
-      Left[Int, String](123)
+    if (input == true) {
+      Failure[Int, String](123)
     } else {
-      Right[Int, String]("abc")
+      Success[Int, String]("abc")
     }
 
   println("intOrString: " + intOrString(true))
 
-  val sum: Sum[Int, String] = Right("foo")
+  val sum: Sum[Int, String] = Success("foo")
 
   val checkSum = sum match {
-    case Left(value) => value.toString
-    case Right(value) => value
+    case Failure(value) => value.toString
+    case Success(value) => value
   }
 
   println("check sum: " + checkSum)
 
   val checkFoldSum = Left(123)
   val checkSumVal = checkFoldSum.fold[String](a => a.toString, int => int)
-  println("checkSumValue: " +  checkSumVal.isInstanceOf[Double] )
+  println("checkSumValue: " + checkSumVal.isInstanceOf[Double])
 
-
-  val perhaps: Maybe[Int] = Empty[Int]
+  val perhaps: Maybe[Int] = Empty[Int]()
   val perhaps2: Maybe[Int] = Full(1)
 
   println("maybe: " + perhaps + " " + perhaps2)
+
+
+  val users: GenericList[User] = GenericPair(User(100, List(Order(1))), GenericPair(User(200, List(Order(5))), GenericEnd()))
+  val hundredthUser = users.map(user => User(user.id, List()))
+  println("hundredth user: " + hundredthUser)
+
+  val list: GenericList[Int] = GenericPair(1, GenericPair(2, GenericPair(3, GenericEnd())))
+  val doubledList = list.map(_ * 2)
+  println("all elements doubled: " + doubledList)
+  val addOneList = list.map(_ + 1)
+  println("all elements plus one: " + addOneList)
+  val divideByThreeList = list.map(_ / 3)
+  println("all elements divided by 3: " + divideByThreeList)
+
+  val anotherList = List(1, 2, 3)
+  val listAndNegation: List[Int] = anotherList.flatMap(v => List(v, -v))
+  println("list and its negation: " + listAndNegation)
+
+  val fullList = List(Full(3), Full(2), Full(1))
+  //val noneOddList: List[Maybe[Int]] = fullList.map(x => {x.flatMap { y => if (y % 2 == 0) Full(y) else Empty() }})
+  //println(("noneOddList: " + noneOddList))
+
 }
 

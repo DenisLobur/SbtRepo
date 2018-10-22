@@ -21,6 +21,14 @@ sealed trait GenericList[A] {
       case GenericPair(head, tail) => if (index == 0) head else tail.apply(index - 1)
     }
   }
+
+  def map[B](f: A => B): GenericList[B] = {
+    this match {
+      case GenericEnd() => GenericEnd[B]()
+      case GenericPair(head, tail) => GenericPair(f(head), tail.map(f))
+    }
+  }
+
 }
 
 final case class GenericEnd[A]() extends GenericList[A]
