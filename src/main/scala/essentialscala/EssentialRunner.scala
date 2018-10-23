@@ -107,7 +107,7 @@ object EssentialRunner extends App {
   val checkSumVal = checkFoldSum.fold[String](a => a.toString, int => int)
   println("checkSumValue: " + checkSumVal.isInstanceOf[Double])
 
-  val perhaps: Maybe[Int] = Empty[Int]()
+  val perhaps: Maybe[Int] = Empty
   val perhaps2: Maybe[Int] = Full(1)
 
   println("maybe: " + perhaps + " " + perhaps2)
@@ -130,8 +130,10 @@ object EssentialRunner extends App {
   println("list and its negation: " + listAndNegation)
 
   val fullList = List(Full(3), Full(2), Full(1))
-  //val noneOddList: List[Maybe[Int]] = fullList.map(x => {x.flatMap { y => if (y % 2 == 0) Full(y) else Empty() }})
-  //println(("noneOddList: " + noneOddList))
+  val noneOddList: List[Maybe[Int]] = fullList.map(x => {
+    x flatMap { y => if (y % 2 == 0) Full(y) else Empty }
+  })
+  println("noneOddList: " + noneOddList)
 
 }
 

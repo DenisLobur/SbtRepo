@@ -1,16 +1,16 @@
 package essentialscala
 
-sealed trait Maybe[A] {
+sealed trait Maybe[+A] {
   def fold[B](empty: B, full: A => B): B = {
     this match {
-      case Empty() => empty
+      case Empty => empty
       case Full(value) => full(value)
     }
   }
 
   def map[B](f: A => B): Maybe[B] = {
     this match {
-      case Empty() => Empty[B]()
+      case Empty => Empty
       case Full(value) => Full(f(value))
     }
   }
@@ -21,7 +21,7 @@ sealed trait Maybe[A] {
 
   def flatMap[B](f: A => Maybe[B]): Maybe[B] = {
     this match {
-      case Empty() => Empty[B]
+      case Empty => Empty
       case Full(value) => f(value)
     }
   }
@@ -29,4 +29,4 @@ sealed trait Maybe[A] {
 
 final case class Full[A](value: A) extends Maybe[A]
 
-final case class Empty[A]() extends Maybe[A]
+final case object Empty extends Maybe[Nothing]
