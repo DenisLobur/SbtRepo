@@ -87,9 +87,9 @@ object EssentialRunner extends App {
 
   def intOrString(input: Boolean): Sum[Int, String] =
     if (input == true) {
-      Failure[Int, String](123)
+      Failure[Int](123)
     } else {
-      Success[Int, String]("abc")
+      Success[String]("abc")
     }
 
   println("intOrString: " + intOrString(true))
@@ -141,5 +141,10 @@ object EssentialRunner extends App {
   }
 
   println(groom((a: Animal) => new Purr()))
+
+  assert(Addition(Number(1), Number(2)).eval == Success(3))
+  assert(SquareRoot(Number(-1)).eval == Failure("Square root of negative number"))
+  assert(Division(Number(4), Number(0)).eval == Failure("Division by zero"))
+  assert(Division(Addition(Subtraction(Number(8), Number(6)), Number(2)), Number(2)).eval == Success(2.0))
 }
 

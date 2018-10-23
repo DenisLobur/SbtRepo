@@ -1,6 +1,6 @@
 package essentialscala
 
-sealed trait Sum[A, B] {
+sealed trait Sum[+A, +B] {
   def fold[C](error: A => C, success: B => C): C = {
     this match {
       case Failure(a) => error(a)
@@ -15,15 +15,15 @@ sealed trait Sum[A, B] {
     }
   }
 
-  def flatMap[C](f: B => Sum[A, C]): Sum[A, C] = {
+  def flatMap[AA >: A, C](f: B => Sum[AA, C]): Sum[AA, C] = {
     this match {
-      case Failure(value) => Failure[A, C](value)
+      case Failure(value) => Failure(value)
       case Success(value) => f(value)
 
     }
   }
 }
 
-final case class Failure[A, B](value: A) extends Sum[A, B]
+final case class Failure[A](value: A) extends Sum[A, Nothing]
 
-final case class Success[A, B](value: B) extends Sum[A, B]
+final case class Success[B](value: B) extends Sum[Nothing, B]
