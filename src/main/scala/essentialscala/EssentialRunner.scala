@@ -1,6 +1,6 @@
 package essentialscala
 
-import essentialscala.model.{Order, User}
+import essentialscala.model._
 
 object EssentialRunner extends App {
   val d = End
@@ -135,5 +135,11 @@ object EssentialRunner extends App {
   })
   println("noneOddList: " + noneOddList)
 
+  def groom(groomer: Cat => CatSound): CatSound = {
+    val oswald = new Cat()
+    groomer(oswald)
+  }
+
+  println(groom((a: Animal) => new Purr()))
 }
 
