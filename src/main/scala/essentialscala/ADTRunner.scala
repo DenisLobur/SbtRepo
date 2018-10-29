@@ -2,7 +2,7 @@ package essentialscala
 
 import essentialscala.model._
 
-object EssentialRunner extends App {
+object ADTRunner extends App {
   val d = End
   val c = Pair(3, d)
   val b = Pair(2, c)
