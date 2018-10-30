@@ -48,5 +48,29 @@ object CollectionsRunner extends App {
   println("reversed: " + seqOps.reverse(testReverse))
   println("mapped: " + seqOps.map(testReverse, (x: Int) => x * 3))
   println("foldedLeft: " + seqOps.foldLeft(testReverse)(0)((a, b) => a + b))
+  val z = for {
+    x <- Seq(1,2,3)
+  } yield x * 2
+  println(z)
 
+  println("Nolan's movies using For: " + movies.nolanMoviesWithFor())
+  println("All movies with For: " + movies.allMoviesWithFor())
+  println("Movies by rating with For: " + movies.sortMoviesByRatingWithFor())
+  movies.moviesByDirectorWithFor()
+
+  println(seqOps.parseIntFromString("122a").getOrElse(0))
+  val a = seqOps.parseIntFromString("12")
+  val b = seqOps.parseIntFromString("3")
+  println("Sum of two Options is equal to: " + seqOps.addOptions(a,b))
+  println("Sum of two OptionsHOF is equal to: " + seqOps.addOptionsHOF(a,b))
+  println("Sum of three Options is equal to: " + seqOps.addThreeOptions(a,b,a))
+  println("Sum of three OptionsHOF is equal to: " + seqOps.addThreeOptionsHOF(a,b,a))
+  println("Division with options: " + seqOps.divide(6,0))
+  println("Division with options: " + seqOps.divideOptions(Some(4), Some(2)))
+
+  val calculator = Calculator
+  calculator.calculate("3", "*", "2")
+  calculator.calculateHOF("3", "*", "2")
+
+  println("Add three options: " + seqOps.addOptions(Some(1), Some(2), Some(3)))
 }

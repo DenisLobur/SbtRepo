@@ -58,6 +58,33 @@ object Movies {
     nolan.films.map(m => m.name)
   }
 
+  def nolanMoviesWithFor(): Seq[String] = {
+    for {
+      film <- nolan.films
+    } yield film.name
+  }
+
+  def allMoviesWithFor(): Seq[String] = {
+    for {
+      director <- directors
+      movie <- director.films
+    } yield movie.name
+  }
+
+  def sortMoviesByRatingWithFor(): Seq[Film] = {
+    (for {
+      director <- directors
+      movie <- director.films
+    } yield movie).sortWith((a, b) => a.imdbRating > b.imdbRating)
+  }
+
+  def moviesByDirectorWithFor(): Unit = {
+    for {
+      director <- directors
+      film <- director.films
+    } println(s"Tonight only! ${film.name} by ${director.firstName}!")
+  }
+
   def erliestMcTiernan(): Int = {
     mcTiernan.films.map(f => f.yearOfRelease).sortWith(_ < _).head
   }
@@ -85,6 +112,6 @@ object Movies {
   }
 
   def earliestMovie() = {
-    directors.flatMap(director => director.films).sortWith((a,b) => a.yearOfRelease < b.yearOfRelease).head
+    directors.flatMap(director => director.films).sortWith((a, b) => a.yearOfRelease < b.yearOfRelease).head
   }
 }
