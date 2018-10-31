@@ -49,7 +49,7 @@ object CollectionsRunner extends App {
   println("mapped: " + seqOps.map(testReverse, (x: Int) => x * 3))
   println("foldedLeft: " + seqOps.foldLeft(testReverse)(0)((a, b) => a + b))
   val z = for {
-    x <- Seq(1,2,3)
+    x <- Seq(1, 2, 3)
   } yield x * 2
   println(z)
 
@@ -61,11 +61,11 @@ object CollectionsRunner extends App {
   println(seqOps.parseIntFromString("122a").getOrElse(0))
   val a = seqOps.parseIntFromString("12")
   val b = seqOps.parseIntFromString("3")
-  println("Sum of two Options is equal to: " + seqOps.addOptions(a,b))
-  println("Sum of two OptionsHOF is equal to: " + seqOps.addOptionsHOF(a,b))
-  println("Sum of three Options is equal to: " + seqOps.addThreeOptions(a,b,a))
-  println("Sum of three OptionsHOF is equal to: " + seqOps.addThreeOptionsHOF(a,b,a))
-  println("Division with options: " + seqOps.divide(6,0))
+  println("Sum of two Options is equal to: " + seqOps.addOptions(a, b))
+  println("Sum of two OptionsHOF is equal to: " + seqOps.addOptionsHOF(a, b))
+  println("Sum of three Options is equal to: " + seqOps.addThreeOptions(a, b, a))
+  println("Sum of three OptionsHOF is equal to: " + seqOps.addThreeOptionsHOF(a, b, a))
+  println("Division with options: " + seqOps.divide(6, 0))
   println("Division with options: " + seqOps.divideOptions(Some(4), Some(2)))
 
   val calculator = Calculator
@@ -73,4 +73,25 @@ object CollectionsRunner extends App {
   calculator.calculateHOF("3", "*", "2")
 
   println("Add three options: " + seqOps.addOptions(Some(1), Some(2), Some(3)))
+
+
+  val mapSetOps = MapSetOps
+  println("Fovorite color: " + mapSetOps.favoriteColor("Bob"))
+  mapSetOps.printColors()
+
+  println(mapSetOps.lookup("Alice", mapSetOps.favoriteLolcats))
+
+  mapSetOps.getOldestColor()
+
+  val set1: Set[Int] = Set(1, 2, 3)
+  val set2: Set[Int] = Set(3, 4, 5)
+  val set3: Set[String] = Set("a", "b", "c")
+  val set4: Set[String] = Set("3", "4", "5")
+  val map1 = Map("a" -> 1, "b" -> 2, "c" -> 3)
+  val map2 = Map("a" -> 3, "b" -> 3, "c" -> 3)
+  println("Unite sets with union: " + mapSetOps.union(set1, set2))
+  println("Unite sets with unionMine: " + mapSetOps.unionMine(set1, set2))
+  println("Unite maps : " + mapSetOps.unionOfMaps(map1, map2))
+  println("Unite generic maps : " + mapSetOps.unionOfGenMaps(map1, map2, (a: Int, b: Int) => a))
+
 }
